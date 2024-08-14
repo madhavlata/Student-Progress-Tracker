@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import ProgressSummary from "./ProgressSummary";
 import DetailedReports from "./DetailedReports";
 import { Route, Routes } from "react-router-dom";
+import "./KidDashboard.css";
 
 const KidDashboard = () => {
   return (
