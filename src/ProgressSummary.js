@@ -1,58 +1,99 @@
 import React from "react";
-import CircularProgress from "./CircularProgress";
+import { CircularProgress as MuiCircularProgress } from "./CircularProgress";
+import { Bar, Pie } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement,
+} from "chart.js";
 import "./ProgressSummary.css";
+
+// Register Chart.js components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement
+);
+
+const progressData = {
+  labels: ["Speaking", "Listening", "Reading", "Writing"],
+  datasets: [
+    {
+      label: "Time Spent (hrs)",
+      data: [10, 8, 12, 5],
+      backgroundColor: ["#ff6384", "#36a2eb", "#4bc0c0", "#ffce56"],
+    },
+  ],
+};
+
+const progressOptions = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "top",
+    },
+    tooltip: {
+      callbacks: {
+        label: function (tooltipItem) {
+          return `${tooltipItem.label}: ${tooltipItem.raw} hrs`;
+        },
+      },
+    },
+  },
+};
+
+const pieData = {
+  labels: ["Speaking", "Listening", "Reading", "Writing"],
+  datasets: [
+    {
+      label: "Time Distribution",
+      data: [10, 8, 12, 5],
+      backgroundColor: ["#ff6384", "#36a2eb", "#4bc0c0", "#ffce56"],
+    },
+  ],
+};
+
+const pieOptions = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "top",
+    },
+    tooltip: {
+      callbacks: {
+        label: function (tooltipItem) {
+          return `${tooltipItem.label}: ${tooltipItem.raw} hrs`;
+        },
+      },
+    },
+  },
+};
 
 const ProgressSummary = () => {
   return (
     <div className="progress-summary">
       <h2>Progress Summary</h2>
-      <p class="lesson">Lesson: ABC X13</p>
+      <p className="lesson">Lesson: ABC X13</p>
 
-      <div className="metrics">
-        <CircularProgress value={10} maxValue={20} label="Speaking" />
-        <CircularProgress value={8} maxValue={20} label="Listening" />
-        <CircularProgress value={12} maxValue={20} label="Reading" />
-        <CircularProgress value={5} maxValue={20} label="Writing" />
+      <div className="charts">
+        <div className="bar-chart">
+          <h3>Time Spent on Activities</h3>
+          <Bar data={progressData} options={progressOptions} />
+        </div>
+        <div className="pie-chart">
+          <h3>Time Distribution</h3>
+          <Pie data={pieData} options={pieOptions} />
+        </div>
       </div>
-
-      {/* <div className="pie-chart">
-        <div
-          className="pie-segment"
-          style={{
-            height: "150px",
-            width: "150px",
-            backgroundColor: "#ff6384",
-            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-          }}
-        ></div>
-        <div
-          className="pie-segment"
-          style={{
-            height: "150px",
-            width: "150px",
-            backgroundColor: "#36a2eb",
-            clipPath: "polygon(50% 0, 100% 0, 100% 100%, 50% 100%)",
-          }}
-        ></div>
-        <div
-          className="pie-segment"
-          style={{
-            height: "150px",
-            width: "150px",
-            backgroundColor: "#4bc0c0",
-            clipPath: "polygon(50% 0, 100% 0, 100% 100%, 50% 100%)",
-          }}
-        ></div>
-        <div
-          className="pie-segment"
-          style={{
-            height: "150px",
-            width: "150px",
-            backgroundColor: "#ffce56",
-            clipPath: "polygon(0 0, 50% 0, 50% 100%, 0 100%)",
-          }}
-        ></div> */}
-      {/* </div> */}
     </div>
   );
 };

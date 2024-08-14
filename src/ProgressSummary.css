@@ -62,3 +62,46 @@
     transform: scale(1.02);
     /* Slightly enlarge the element */
 }
+
+.progress-summary {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lesson {
+    font-size: 1.5rem;
+    color: #3498db;
+    background-color: #f9f9f9;
+    padding: 12px 20px;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    margin: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.charts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+.bar-chart,
+.pie-chart {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+h2 {
+    color: #333;
+}
+
+h3 {
+    margin-bottom: 10px;
+    color: #333;
+}

@@ -1,0 +1,69 @@
+/* DetailedReports.css */
+
+.detailed-reports {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.detailed-reports h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.report-item {
+    margin: 20px 0;
+}
+
+.report-item p {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+.report-item p span {
+    font-weight: bold;
+    color: #3498db;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.progress-text {
+    font-size: 1.2rem;
+    color: #3498db;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.line-graph-placeholder {
+    display: inline-block;
+    width: 100%;
+    height: 200px;
+    background-color: #ecf0f1;
+    border: 2px dashed #bdc3c7;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 200px;
+    color: #7f8c8d;
+}
